@@ -2,45 +2,38 @@
 #
 # https://gqlgen.com/getting-started/
 
-type JobListing
-{
-  _id : ID!, 
-  title:  String!,
-  description:  String!,
-  company:  String!,
-  url:  String!
+type JobListing {
+  _id: ID!
+  title: String!
+  description: String!
+  company: String!
+  url: String!
 }
 
-type Query
-{
-  jobs: [JobListing!]!,
+type Query {
+  jobs: [JobListing!]!
   job(id: ID!): JobListing!
 }
 
-type Mutation
-{
-  createJobListing(input: CreateJobListingInput!): JobListing!,
-  updateJobListing(id: ID!, input: UpdateJobListingInput!): JobListing!,
-  deleteJobListing(id: ID!), DeleteJobResponse!
+type Mutation {
+  createJobListing(input: CreateJobListingInput!): JobListing!
+  updateJobListing(id: ID!, input: UpdateJobListingInput!): JobListing!
+  deleteJobListing(id: ID!): DeleteJobResponse!
 }
 
-
-input CreateJobListingInput
-{ 
-  title:  String!,
-  description:  String!,
-  company:  String!,
-  url:  String!
+input CreateJobListingInput {
+  title: String!
+  description: String!
+  company: String!
+  url: String!
 }
 
-input UpdateJobListingInput
-{ 
-  title:  String,
-  description:  String,
-  url:  String
+input UpdateJobListingInput {
+  title: String
+  description: String
+  url: String
 }
 
-type DeleteJobResponse
-{
-
+type DeleteJobResponse {
+  deletedJobId: String!
 }
