@@ -17,7 +17,7 @@ mkdir gql-yt
 ### Step 2: Initialize Your Project
 ```bash
 cd gql-yt
-go mod init github.com/akhil/gql-yt
+go mod init github.com/<your-github-username>/gql-yt
 ```
 
 ### Step 3: Get gqlgen for Your Project
