@@ -13,7 +13,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
-var ConnectionString string = "mongodb+srv://mongo:mongo@cluster0.7xdb4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+var ConnectionString string = "mongodb+srv://mongo:<password>@cluster0.7xdb4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 // Connect connects to the database.
 
