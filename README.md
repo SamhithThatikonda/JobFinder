@@ -1,6 +1,12 @@
-# GOLANG GRAPHQL MONGODB CRUD Project
+# JobFinder Listing CRUD Project
+**Golang | GraphQL | MongoDB**
 
-This is the accompanying code for my YouTube video with the same name (almost the same name).
+This project demonstrates a CRUD (Create, Read, Update, Delete) application using Golang, GraphQL, and MongoDB.
+
+## Tech Stack
+- **Golang**: The main programming language used for building the backend services.
+- **GraphQL**: Used for API design, enabling efficient querying and manipulation of data.
+- **MongoDB**: A NoSQL database used for storing job listings and related information.
 
 ## Project Initialization
 
