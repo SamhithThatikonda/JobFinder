@@ -1,41 +1,138 @@
-GOLANG GRAPHQL MONGODB CRUD Project
-This is the accompanying code for my Youtube video with the same name (almost the same name)
-Do the stuff below to initialize your project
-Create a new folder for the Project mkdir gql-yt
-Mod init your project, give it whatever name you like go mod init github.com/akhil/gql-yt
-Get gql gen for your project go get github.com/99designs/gqlgen
-Add gqlgen to tools.go printf '// +build tools\npackage tools\nimport _ "github.com/99designs/gqlgen"' | gofmt > tools.go
-Get all the dependencies go mod tidy
-Initialize your project go run github.com/99designs/gqlgen init
-After you've written the graphql schema, run this - go run github.com/99designs/gqlgen generate
-After you've built the project, these are the queries to interact with the API -
-Get All Jobs
-query GetAllJobs{ jobs{ _id title description company url } }
+# GOLANG GRAPHQL MONGODB CRUD Project
 
-=======================
+This is the accompanying code for my YouTube video with the same name (almost the same name).
+
+## Project Initialization
+
+### Step 1: Create a New Folder for the Project
+```bash
+mkdir gql-yt
+```
+### Step 2: Initialize Your Project
+```bash
+cd gql-yt
+go mod init github.com/akhil/gql-yt
+```
+
+### Step 3: Get gqlgen for Your Project
+```bash
+go get github.com/99designs/gqlgen
+```
+
+### Step 4: Add gqlgen to tools.go
+```bash
+printf '// +build tools\npackage tools\nimport _ "github.com/99designs/gqlgen"' | gofmt > tools.go
+```
+
+### Step 5: Get All the Dependencies
+```bash
+go mod tidy
+```
+### Step 6: Initialize Your Project and Generate Code After Writing the GraphQL Schema
+```bash
+go run github.com/99designs/gqlgen init
+go run github.com/99designs/gqlgen generate
+```
+
+GraphQL Queries to Interact with the API
+
+Get All Jobs
+
+```graphql
+query GetAllJobs {
+  jobs {
+    _id
+    title
+    description
+    company
+    url
+  }
+}
+```
 
 Create Job
-mutation CreateJobListing($input: CreateJobListingInput!){ createJobListing(input:$input){ _id title description company url } }
 
-{ "input": { "title": "Software Development Engineer - I", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", "company": "Google", "url": "www.google.com/" } }`
+```graphql
+mutation CreateJobListing($input: CreateJobListingInput!) {
+  createJobListing(input: $input) {
+    _id
+    title
+    description
+    company
+    url
+  }
+}
+```
 
-=========================
+Example Input:
+```json
+{
+  "input": {
+    "title": "Software Development Engineer - I",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+    "company": "Google",
+    "url": "www.google.com/"
+  }
+}
+```
 
 Get Job By Id
-query GetJob($id: ID!){ job(id:$id){ _id title description url company } }
+```graphql
+query GetJob($id: ID!) {
+  job(id: $id) {
+    _id
+    title
+    description
+    url
+    company
+  }
+}
+```
 
-{ "id": "638051d7acc418c13197fdf7" }
-
-=========================
+Example Input:
+```json
+{
+  "id": "638051d7acc418c13197fdf7"
+}
+```
 
 Update Job By Id
-mutation UpdateJobListing($id: ID!,$input: UpdateJobListingInput!) { updateJobListing(id:$id,input:$input){ title description _id company url } }
+```graphql
+mutation UpdateJobListing($id: ID!, $input: UpdateJobListingInput!) {
+  updateJobListing(id: $id, input: $input) {
+    title
+    description
+    _id
+    company
+    url
+  }
+}
+```
 
-{ "id": "638051d3acc418c13197fdf6", "input": { "title": "Software Development Engineer - III" } }
-
-=================================
+Example Input:
+```json
+{
+  "id": "638051d3acc418c13197fdf6",
+  "input": {
+    "title": "Software Development Engineer - III"
+  }
+}
+```
 
 Delete Job By Id
-mutation DeleteJobListing($id: ID!) { deleteJobListing(id:$id){ deletedJobId } }
+```graphql
+mutation DeleteJobListing($id: ID!) {
+  deleteJobListing(id: $id) {
+    deletedJobId
+  }
+}
+```
 
-{ "id": "638051d3acc418c13197fdf6" }
+Example Input:
+```json
+{
+  "id": "638051d3acc418c13197fdf6"
+}
+```
+
+This README file provides step-by-step instructions to initialize the project and the GraphQL queries to interact with the API.
