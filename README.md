@@ -34,9 +34,9 @@ go run github.com/99designs/gqlgen init
 go run github.com/99designs/gqlgen generate
 ```
 
-## GraphQL Queries to Interact with the API
+### GraphQL Queries to Interact with the API
 
-## Get All Jobs
+#### Get All Jobs
 
 ```graphql
 query GetAllJobs {
@@ -50,7 +50,7 @@ query GetAllJobs {
 }
 ```
 
-## Create Job
+#### Create Job
 
 ```graphql
 mutation CreateJobListing($input: CreateJobListingInput!) {
@@ -76,7 +76,7 @@ Example Input:
 }
 ```
 
-## Get Job By Id
+#### Get Job By Id
 ```graphql
 query GetJob($id: ID!) {
   job(id: $id) {
@@ -96,7 +96,7 @@ Example Input:
 }
 ```
 
-## Update Job By Id
+#### Update Job By Id
 ```graphql
 mutation UpdateJobListing($id: ID!, $input: UpdateJobListingInput!) {
   updateJobListing(id: $id, input: $input) {
@@ -119,7 +119,7 @@ Example Input:
 }
 ```
 
-## Delete Job By Id
+#### Delete Job By Id
 ```graphql
 mutation DeleteJobListing($id: ID!) {
   deleteJobListing(id: $id) {
